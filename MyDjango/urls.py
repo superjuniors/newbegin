@@ -19,7 +19,8 @@ from django.conf.urls import url, include  #导入URL编写模块
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('df_goods.urls', namespace='df_goods')),  #
+    url(r'^', include('_index.urls', namespace='_index')), #测试页面跳转第一页
+    url(r'^goods/', include('df_goods.urls', namespace='df_goods')),  #本应是页面跳转页
     url(r'^user/', include('df_user.urls', namespace='df_user')),
     url(r'^cart/', include('df_cart.urls', namespace='df_cart')),
     url(r'^order/', include('df_order.urls', namespace='df_order')),

@@ -6,4 +6,4 @@ def register(request):
     context = {
         'title': '用户注册',
     }
-    return render(request, 'df_user/register.html', context)
+    return render(request, 'df_user/base.html')

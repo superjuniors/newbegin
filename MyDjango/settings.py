@@ -14,6 +14,8 @@ import os
 
 #路径
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -62,7 +64,7 @@ ROOT_URLCONF = 'MyDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  #设置查找模板的路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'MyDjango.wsgi.application'
-
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # 数据库
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -86,6 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+
 }
 
 
@@ -128,4 +131,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-#不能使用？？？？？？

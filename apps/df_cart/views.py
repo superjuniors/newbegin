@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def _index(request):
-    return HttpResponse("hello world")
+
+def user_cart(request):
+    return render(request, 'df_cart/cart.html')
